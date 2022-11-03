@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <form th:fragment="customerForm" method="post" action="#" th:action="@{/customers/create}" th:object="${customer}">
+
+    <div class="form-group row">
+      <label for="code" class="col-md-2">Code</label>
+      <div class="col-md-6">
+         <input type="text" id="code" th:field="*{code}" class="form-control" />
+      </div>
+      <div th:if="${#fields.hasErrors('code')}" th:errors="*{code}" class="text-danger"></div>
+    </div>
+
+
+
+    <div class="form-group row">
+      <label for="firstName" class="col-md-2">First Name</label>
+      <div class="col-md-6">
+        <input type="text" id="firstName" th:field="*{firstName}" class="form-control" />
+      </div>
+      <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"></div>
+    </div>
+
+    <div class="form-group row">
+      <label for="lastName" class="col-md-2">Last Name</label>
+      <div class="col-md-6">
+        <input type="text" id="lastName" th:field="*{lastName}" class="form-control" />
+      </div>
+      <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1">
+        <a href="#" th:href="@{/customers}" class="btn btn-outline-secondary">Cancel</a>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
+      </div>
+    </div>
+
+
+  </form>
+</body>
+</html>
